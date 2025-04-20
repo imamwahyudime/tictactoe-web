@@ -1,0 +1,133 @@
+/* Reset dan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+/* Kontainer Utama */
+.game-container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px; /* Batas lebar maksimum */
+    width: 90%; /* Lebar relatif untuk layar kecil */
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Status Permainan */
+.status {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 25px;
+    min-height: 1.5em; /* Cegah lompatan layout saat teks berubah */
+    color: #3498db;
+}
+
+/* Papan Permainan */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(80px, 100px)); /* Kolom responsif */
+    grid-template-rows: repeat(3, minmax(80px, 100px));    /* Baris responsif */
+    gap: 10px;
+    margin: 20px auto;
+    justify-content: center; /* Pusatkan grid jika lebih kecil dari kontainer */
+}
+
+/* Sel Individual */
+.cell {
+    background-color: #ecf0f1;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em; /* Ukuran font relatif besar */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cell:hover {
+    background-color: #dfe6e9;
+    transform: scale(1.03); /* Sedikit zoom saat hover */
+}
+
+/* Gaya untuk X dan O */
+.cell.x {
+    color: #e74c3c; /* Merah */
+}
+
+.cell.o {
+    color: #2980b9; /* Biru */
+}
+
+/* Tombol Mulai Ulang */
+#restartButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+#restartButton:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px); /* Efek sedikit terangkat */
+}
+
+#restartButton:active {
+    transform: translateY(0); /* Kembali saat diklik */
+}
+
+/* Responsivitas */
+@media (max-width: 480px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .status {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .board {
+        grid-template-columns: repeat(3, 70px);
+        grid-template-rows: repeat(3, 70px);
+        gap: 8px;
+    }
+
+    .cell {
+        font-size: 2.5em;
+    }
+
+    #restartButton {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
